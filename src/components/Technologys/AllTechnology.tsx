@@ -1,6 +1,7 @@
 import { use, useState } from 'react';
 import type { TechType } from '../Type';
 import AllTechnologyCard from './AllTechnologyCard';
+import SelectedTechnologyCard from './SelectedTechnologyCard';
 interface TechnologyPromiseProps{
     TechnologyPromise:Promise<TechType[]>;
 }
@@ -20,8 +21,8 @@ const AllTechnology = ({TechnologyPromise}: TechnologyPromiseProps) => {
                     Technologys.map(Technology => <AllTechnologyCard Technology={Technology} key={Technology.id} selectedTech={selectedTech} setSelectedTech={setSelectedTech}/>)
                 }
             </div>
-            <div className='col-span-1'>
-
+            <div>
+                <SelectedTechnologyCard selectedTech={selectedTech} setSelectedTech={setSelectedTech} />
             </div>
             </div>
             
