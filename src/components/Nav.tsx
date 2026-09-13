@@ -1,26 +1,110 @@
-import logo from "../assets/logo-text.png"
+import { FaBars } from "react-icons/fa";
+import logo from "../assets/logo-text.png";
+import { useState } from "react";
+import { FaXmark } from "react-icons/fa6";
+
 const Nav = () => {
-    return (
-            <div className="bg-white sticky top-0 z-50">
-                <nav className="flex items-center justify-between container mx-auto p-4 ">
-                <div>
-                    <img src={logo} alt="DevStack logo" className="w-33"/>
-                </div>
-                <div className="hidden sm:block">
-                    <ul className="flex gap-6">
-                        <li className="text-pink-500 hover:text-pink-500"><a href="">Home</a></li>
-                        <li className="hover:text-pink-500"><a href="">Technologies</a></li>
-                        <li className="hover:text-pink-500"><a href="">Projects</a></li>
-                        <li className="hover:text-pink-500"><a href="">About</a></li>
-                        <li className="hover:text-pink-500"><a href="">Contact</a></li>
-                    </ul>
-                </div>
-                <div className="space-x-3 font-semibold">
-                    <button className="cursor-pointer">Sign In</button>
-                    <button className="bg-pink-500 rounded-full px-4 py-1 text-slate-50 cursor-pointer hover:bg-pink-600">Sign Up</button>
-                </div>
-            </nav>
-            </div>
-    );
+
+    const [isOpen, setIsOpen]= useState<boolean> (false);
+
+  return (
+    <div className="bg-white sticky top-0 z-50 shadow-sm">
+        {/* For Mobile */}
+      <nav className="md:hidden container mx-auto px-4 py-3 flex items-center justify-between">
+
+        <button onClick={()=> setIsOpen(!isOpen)} className="text-xl cursor-pointer">
+          {isOpen ?<FaXmark/> : <FaBars />}
+        </button>
+
+        <img
+          src={logo}
+          alt="DevStack logo"
+          className="w-28"
+        />
+
+        <button className="bg-pink-500 rounded-full px-4 py-1.5 text-sm text-white cursor-pointer hover:bg-pink-400">
+          Sign Up
+        </button>
+
+      </nav>
+
+      {/* For mobile menu */}
+      {isOpen && (
+        <div className="md:hidden border-t border-slate-200 bg-white">
+            <ul className="flex flex-col items-center gap-5 py-5 font-medium">
+                <li className="text-pink-500">
+              <a href="">Home</a>
+            </li>
+
+            <li className="hover:text-pink-500 transition">
+              <a href="">Technologies</a>
+            </li>
+
+            <li className="hover:text-pink-500 transition">
+              <a href="">Projects</a>
+            </li>
+
+            <li className="hover:text-pink-500 transition">
+              <a href="">About</a>
+            </li>
+
+            <li className="hover:text-pink-500 transition">
+              <a href="">Contact</a>
+            </li>
+            </ul>
+        </div>
+      )}
+
+
+      {/*For DeskTop and Tab*/}
+      <nav className="hidden md:flex items-center justify-between container mx-auto px-6 lg:px-8 py-4">
+
+        <div>
+          <img
+            src={logo}
+            alt="DevStack logo"
+            className="w-32"
+          />
+        </div>
+
+        <div>
+          <ul className="flex gap-5 lg:gap-7 font-medium">
+            <li className="text-pink-500">
+              <a href="">Home</a>
+            </li>
+
+            <li className="hover:text-pink-500 transition">
+              <a href="">Technologies</a>
+            </li>
+
+            <li className="hover:text-pink-500 transition">
+              <a href="">Projects</a>
+            </li>
+
+            <li className="hover:text-pink-500 transition">
+              <a href="">About</a>
+            </li>
+
+            <li className="hover:text-pink-500 transition">
+              <a href="">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="flex items-center gap-3 font-semibold">
+          <button className="cursor-pointer">
+            Sign In
+          </button>
+
+          <button className="bg-pink-500 rounded-full px-4 py-1.5 text-white cursor-pointer hover:bg-pink-400">
+            Sign Up
+          </button>
+        </div>
+
+      </nav>
+
+    </div>
+  );
 };
+
 export default Nav;
