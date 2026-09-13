@@ -18,7 +18,10 @@ function App() {
     <>
       <Nav />
       <Hero />
-      <Suspense fallback = {<div>Loading...</div>}>
+      <Suspense fallback = {
+        <div className=" flex justify-center items-center text-6xl">
+          <span className="loading loading-spinner loading-xl"></span>
+        </div>}>
         <AllTechnology TechnologyPromise={TechnologyPromise}  />
       </Suspense>
        <ToastContainer />
@@ -27,4 +30,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
