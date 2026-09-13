@@ -4,6 +4,7 @@ import Nav from "./components/Nav"
 import AllTechnology from "./components/Technologys/AllTechnology";
 import type { TechType } from "./components/Type";
 import { ToastContainer } from "react-toastify";
+import Footer from "./components/Footer";
 
 const TechnologyFetch = async():Promise<TechType[]> =>{
   const res = await fetch("/TechData.json");
@@ -21,6 +22,7 @@ function App() {
         <AllTechnology TechnologyPromise={TechnologyPromise}  />
       </Suspense>
        <ToastContainer />
+       <Footer />
     </>
   )
 }

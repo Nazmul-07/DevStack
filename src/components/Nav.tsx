@@ -16,7 +16,7 @@ const Nav = () => {
                     </ul>
                 </div>
                 <div className="space-x-3 font-semibold">
-                    <button className="cursor-pointer rounded-full px-4 py-1 hover:border border-pink-500">Sign In</button>
+                    <button className="cursor-pointer">Sign In</button>
                     <button className="bg-pink-500 rounded-full px-4 py-1 text-slate-50 cursor-pointer hover:bg-pink-600">Sign Up</button>
                 </div>
             </nav>
