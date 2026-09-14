@@ -15,7 +15,7 @@ const SelectedTechnologyCard = ({
   const handleRemoveBtn = (tech: TechType) => {
     const remaning = selectedTech.filter((t) => tech.id !== t.id);
     setSelectedTech(remaning);
-    toast.success(tech.name + " deleted successfully", {
+    toast.error(tech.name + " deleted successfully", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -30,7 +30,7 @@ const SelectedTechnologyCard = ({
 
   const handleRemoveAllBtn = () => {
     setSelectedTech([]);
-    toast.success("Stack cleared", {
+    toast.warning("Stack cleared", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -49,11 +49,11 @@ const SelectedTechnologyCard = ({
       <p className="mb-5 text-slate-400">
         {selectedTech.length === 0
           ? `No technologies selected yet.`
-          : `${selectedTech.length} Technology Selected. `}
+          : `${selectedTech.length} Technology Selected.`}
       </p>
       {selectedTech.length === 0 && (
-        <h1 className="flex items-center justify-center border border-dotted border-slate-400 rounded-lg font-semibold py-8 text-slate-400">
-          Your stack is empty
+        <h1 className="flex items-center justify-center border border-dotted border-slate-400 rounded-lg font-semibold py-8 text-slate-400 bg-gray-100">
+          Your stack is empty.
         </h1>
       )}
       {selectedTech.map((tech) => {
@@ -63,7 +63,7 @@ const SelectedTechnologyCard = ({
               <img
                 src={tech.icon}
                 alt={tech.name}
-                className="h-10 w-10 object-contain"
+                className="h-10 w-10 object-contain bg-slate-200 p-1 rounded-md"
               />
 
               <div>
